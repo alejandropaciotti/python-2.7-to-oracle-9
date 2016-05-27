@@ -1,20 +1,20 @@
 # python-2.7-to-oracle-9
-How to connect to an Oracle database 9 2.7 python
+Como configurar el software necesario para conectarse a una base de datos Oracle versión 9 con python.
 
-[Download](http://www.oracle.com/technetwork/topics/linuxx86-64soft-092277.html) los siguientes archivos.
+[Download](http://www.oracle.com/technetwork/topics/linuxx86-64soft-092277.html) los siguientes archivos.   
 oracle-instantclient-basic-11.1.0.1-1.x86_64.rpm
-oracle-instantclient-devel-11.1.0.1-1.x86_64.rpm
+oracle-instantclient-devel-11.1.0.1-1.x86_64.rpm  
 
 
 La herramienta alien es indispensable para convertir los archivos .rpm
-a .deb
+a .deb  
 
 ```shell
 sudo apt-get install alien
 sudo alien -d *.rpm
 ```  
 
-Instalación propiamente dicha  
+Instalación propiamente dicha   
 
 ```shell
 sudo dpkg -i oracle-instantclient-basic_11.1.0.1-2_amd64.deb
@@ -40,7 +40,8 @@ $ export LD_LIBRARY_PATH=$ORACLE_HOME/lib
 $ sudo ldconfig
 ```
 
-Si no se bajaron los fuentes bajarlos de [acá](https://pypi.python.org/packages/source/c/cx_Oracle/cx_Oracle-5.1.3.tar.gz#md5=cd6ff16559cbc9c20087ec812c7092ab):
+Bajar los fuentes de la librería cx_Oracle 5.1.3   [acá](https://pypi.python.org/packages/source/c/cx_Oracle/cx_Oracle-5.1.3.tar.gz#md5=cd6ff16559cbc9c20087ec812c7092ab)
+(Ojo, versiones mas nuevas son incompatibles con la versión 9 de Oracle).
 
 Descomprimirlos y entrar en la carpeta.
 
@@ -49,14 +50,14 @@ tar -xzvf cx_Oracle-5-1.2.tar.gz
 cd cx_Oracle-5-1.2
 ```
 
-Modificar las lineas del programa setup.py (aprox: 123)
+Modificar las lineas del programa setup.py (aprox: 123)  
 
 ```python
 #userOracleHome = os.environ.get("ORACLE_HOME")
  userOracleHome = "/usr/lib/oracle/12.1/client64"
 ```
 
-Y mas allá:
+Y en el mismo programa pero un poquito mas abajo:
 ```python
 if oracleHome is None:
        #~ raise DistutilsSetupError("cannot locate an Oracle software " \
@@ -70,7 +71,7 @@ $ python setup.py build
 $ sudo python setup.py install       
 ```
 
-También instalar libaio-dev
+También instalar libaio-dev  
 
 ```shell
 sudo apt-get install libaio-dev
