@@ -2,8 +2,8 @@
 Como configurar el software necesario para conectarse a una base de datos Oracle versión 9 con python.
 
 [Download](http://www.oracle.com/technetwork/topics/linuxx86-64soft-092277.html) los siguientes archivos.   
-oracle-instantclient-basic-11.1.0.1-1.x86_64.rpm
-oracle-instantclient-devel-11.1.0.1-1.x86_64.rpm  
+* oracle-instantclient-basic-11.1.0.1-1.x86_64.rpm  
+* oracle-instantclient-devel-11.1.0.1-1.x86_64.rpm  
 
 
 La herramienta alien es indispensable para convertir los archivos .rpm
